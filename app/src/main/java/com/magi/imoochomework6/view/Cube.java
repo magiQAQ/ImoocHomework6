@@ -9,12 +9,15 @@ import android.view.View;
 public class Cube extends View {
 
     private Bitmap bitmap;
+    //方格的状态时下落还是回弹
+    private boolean isDown;
 
     private Rect rect;
 
     public Cube(Context context, Bitmap bitmap) {
         super(context);
         this.bitmap = bitmap;
+        isDown = true;
     }
 
     public Bitmap getBitmap() {
@@ -23,6 +26,15 @@ public class Cube extends View {
 
     public void setBitmap(Bitmap bitmap) {
         this.bitmap = bitmap;
+        invalidate();
+    }
+
+    public boolean isDown() {
+        return isDown;
+    }
+
+    public void setDown(boolean down) {
+        isDown = down;
     }
 
     @Override
